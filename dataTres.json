@@ -1,0 +1,110 @@
+{
+    "Estacion,0": {
+        "unique_id": "Estacion,0",
+        "IzqSup": [
+            1,
+            0
+        ],
+        "IzqInf": [
+            2,
+            0
+        ],
+        "DerSup": [
+            1,
+            1
+        ],
+        "DerInf": [
+            2,
+            1
+        ]
+    },
+    "Estacion,1": {
+        "unique_id": "Estacion,1",
+        "IzqSup": [
+            1,
+            2
+        ],
+        "IzqInf": [
+            2,
+            2
+        ],
+        "DerSup": [
+            1,
+            3
+        ],
+        "DerInf": [
+            2,
+            3
+        ]
+    },
+    "Estacion,2": {
+        "unique_id": "Estacion,2",
+        "IzqSup": [
+            1,
+            4
+        ],
+        "IzqInf": [
+            2,
+            4
+        ],
+        "DerSup": [
+            1,
+            5
+        ],
+        "DerInf": [
+            2,
+            5
+        ]
+    },
+    "Vagon 0": {
+        "unique_id": "Vagon 0",
+        "x": 0,
+        "y": 1
+    },
+    "Vagon 1": {
+        "unique_id": "Vagon 1",
+        "x": 0,
+        "y": 2
+    },
+    "Vagon 2": {
+        "unique_id": "Vagon 2",
+        "x": 0,
+        "y": 3
+    },
+    "Persona 0 / E0": {
+        "unique_id": "Persona 0 / E0",
+        "estado": "en_tren",
+        "x": 0,
+        "y": 1
+    },
+    "Persona 1 / E0": {
+        "unique_id": "Persona 1 / E0",
+        "estado": "en_tren",
+        "x": 0,
+        "y": 1
+    },
+    "Persona 0 / E1": {
+        "unique_id": "Persona 0 / E1",
+        "estado": "en_tren",
+        "x": 0,
+        "y": 3
+    },
+    "Persona 1 / E1": {
+        "unique_id": "Persona 1 / E1",
+        "estado": "en_tren",
+        "x": 0,
+        "y": 3
+    },
+    "Persona 0 / E2": {
+        "unique_id": "Persona 0 / E2",
+        "estado": "en_estacion",
+        "x": 1,
+        "y": 5
+    },
+    "Persona 1 / E2": {
+        "unique_id": "Persona 1 / E2",
+        "estado": "en_estacion",
+        "x": 1,
+        "y": 5
+    }
+}
