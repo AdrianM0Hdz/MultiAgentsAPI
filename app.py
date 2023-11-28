@@ -1,8 +1,18 @@
+from model import TrainModel, TrainDescription, StationDescription
+from model.serializer import serialize_model
+
+modelo = TrainModel(
+    TrainDescription(10, 10),
+    [
+        StationDescription((10, 0), 10),
+        StationDescription((20, 0), 10),
+        StationDescription((30, 0), 10)
+    ]
+)
+
 from uuid import uuid1
 
 from flask import Flask, request, jsonify 
-
-from model import Mapa
 
 simulations = {}
 
@@ -30,9 +40,6 @@ def create_simulation_handler():
     capacidad_vagon = data["capacidadVagon"]
     personas_en_estacion = data["personasEnEstacion"]
 
-    simulations[simulation_id] = Mapa(estaciones, estacion_size, 
-                                      steps_de_espera, capacidad_vagon, 
-                                      personas_en_estacion)
     
     return jsonify(
         simulationId=simulation_id
@@ -42,36 +49,10 @@ def create_simulation_handler():
 def get_next_step_handler():
     """ Gets the next step of the simulation 
     """
-    data = request.get_json() 
-    if not data:
-        return jsonify(
-            msg="no json body given"
-        ), 400
-    simulation_id = str(data["simulationId"])
-
-    simulation = simulations[simulation_id]
-    datos = simulation.agregarDatosAlJson()
-
-    # serlializamos los datos
-
-    estaciones = []
-    vagones = []
-    personas = []
-
-    for key in datos: 
-        if "Estacion" in key: 
-            estaciones.append(datos[key])
-        elif "Vagon" in key: 
-            vagones.append(datos[key])
-        else: 
-            personas.append(datos[key])
-    
-    simulation.step()
-    
+    data = serialize_model(modelo)
+    modelo.step()
     return jsonify(
-        estaciones=estaciones,
-        vagones=vagones, 
-        personas=personas
+        **data
     )
 
 if __name__ == '__main__':
